@@ -34,7 +34,7 @@ public class TypeOfFurniture extends AppCompatActivity {
 
 
     public void backButton(View view) {
-        Intent home = new Intent(getApplicationContext(), com.alok.simplyinteriorhciproject.MeasurementInputActivity.class);
+        Intent home = new Intent(getApplicationContext(), com.alok.appathonsimplyinterior.MeasurementInputActivity.class);
         startActivity(home);
         finish();
     }

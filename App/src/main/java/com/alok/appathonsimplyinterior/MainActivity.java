@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
     }
 
-//    public void haveMeasurement(View view) {
-//        Intent home = new Intent(getApplicationContext(), com.alok.simplyinteriorhciproject.MeasurementInputActivity.class);
-//        startActivity(home);
-//        finish();
-//    }
+    public void haveMeasurement(View view) {
+        Intent home = new Intent(getApplicationContext(), com.alok.appathonsimplyinterior.MeasurementInputActivity.class);
+        startActivity(home);
+        finish();
+    }
 
     public void takeMeasurement(View view) {
 //        Intent i = new Intent(Intent.ACTION_MAIN);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() == null) {
-            startActivity(new Intent(MainActivity.this, com.alok.simplyinteriorhciproject.login_signup.class));
+            startActivity(new Intent(MainActivity.this, com.alok.appathonsimplyinterior.login_signup.class));
             finish();
         }
     }
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(MainActivity.this, "Test", Toast.LENGTH_LONG).show();
                 break;
             case R.id.logout_menu:
-                Intent about = new Intent(getApplicationContext(), com.alok.simplyinteriorhciproject.MeasurementInputActivity.class);
+                Intent about = new Intent(getApplicationContext(), com.alok.appathonsimplyinterior.MeasurementInputActivity.class);
                 startActivity(about);
                 break;
         }
