@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "76520793584",
+    "project_id": "appathon-simplyinterior",
+    "storage_bucket": "appathon-simplyinterior.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76520793584:android:3e6e2a5cc1b1dc597e6935",
+        "android_client_info": {
+          "package_name": "com.alok.appathonsimplyinterior"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76520793584-o62g8qudjrb1pt9gfrsld0fm2h8l2lp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJnfsh12XXY0jEsMRbO2cMo6-hbnp9GHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76520793584-o62g8qudjrb1pt9gfrsld0fm2h8l2lp8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

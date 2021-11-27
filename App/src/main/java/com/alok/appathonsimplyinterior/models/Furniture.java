@@ -1,4 +1,4 @@
-package com.alok.appathonsimplyinterior;
+package com.alok.appathonsimplyinterior.models;
 
 public class Furniture {
 

@@ -1,4 +1,4 @@
-package com.alok.appathonsimplyinterior;
+package com.alok.appathonsimplyinterior.adapters;
 
 
 import android.content.Context;
@@ -15,18 +15,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alok.appathonsimplyinterior.R;
+import com.alok.appathonsimplyinterior.models.Furniture;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class FurnitureResultAdaptor extends RecyclerView.Adapter<FurnitureResultAdaptor.FurnitureHolder> {
+public class FurnitureResultAdapter extends RecyclerView.Adapter<FurnitureResultAdapter.FurnitureHolder> {
 
     LayoutInflater inflater;
     List<Furniture> furnitures;
     Context context;
 
 
-    public FurnitureResultAdaptor(Context ctx, List<Furniture> furnitures) {
+    public FurnitureResultAdapter(Context ctx, List<Furniture> furnitures) {
         this.inflater = LayoutInflater.from(ctx);
         this.furnitures = furnitures;
         this.context = ctx;

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_animated_bg"
-    tools:context=".login_signup">
+    tools:context=".activities.LoginSignupActivity">
 
     <TextView
         android:id="@+id/missYou"

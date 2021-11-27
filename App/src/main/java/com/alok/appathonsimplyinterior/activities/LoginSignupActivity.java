@@ -1,4 +1,4 @@
-package com.alok.appathonsimplyinterior;
+package com.alok.appathonsimplyinterior.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.alok.appathonsimplyinterior.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -25,7 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class login_signup extends AppCompatActivity {
+public class LoginSignupActivity extends AppCompatActivity {
     ConstraintLayout loginSignup;
     Switch loginSignupSwitch;
     TextView signinTextView;

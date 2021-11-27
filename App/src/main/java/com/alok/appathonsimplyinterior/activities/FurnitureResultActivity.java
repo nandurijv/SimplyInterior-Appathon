@@ -1,4 +1,4 @@
-package com.alok.appathonsimplyinterior;
+package com.alok.appathonsimplyinterior.activities;
 
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -11,6 +11,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alok.appathonsimplyinterior.R;
+import com.alok.appathonsimplyinterior.adapters.FurnitureResultAdapter;
+import com.alok.appathonsimplyinterior.models.Furniture;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -22,13 +25,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FurnitureResult extends AppCompatActivity {
+public class FurnitureResultActivity extends AppCompatActivity {
 
     String l, b, h, cat;
     ConstraintLayout resultLayout;
     RecyclerView recyclerView;
     List<Furniture> furnitures;
-    FurnitureResultAdaptor adaptor;
+    FurnitureResultAdapter adaptor;
 
     String apiurl = "https://sheetdb.io/api/v1/9j4n3euk9qvc3";
 
@@ -59,7 +62,7 @@ public class FurnitureResult extends AppCompatActivity {
 
     public void extractFurnitureDetail() {
         RequestQueue queue;
-        queue = Volley.newRequestQueue(FurnitureResult.this);
+        queue = Volley.newRequestQueue(FurnitureResultActivity.this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, apiurl, null,
                 response -> {
                     for (int i = 0; i < response.length(); i++) {
@@ -83,7 +86,7 @@ public class FurnitureResult extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                        adaptor = new FurnitureResultAdaptor(this, furnitures);
+                        adaptor = new FurnitureResultAdapter(this, furnitures);
                         recyclerView.setAdapter(adaptor);
                     }
                 }, error -> {
@@ -98,7 +101,7 @@ public class FurnitureResult extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(getApplicationContext(), TypeOfFurniture.class);
+        Intent i = new Intent(getApplicationContext(), FurnitureTypeActivity.class);
         i.putExtra("length", l);
         i.putExtra("width", b);
         i.putExtra("height", h);
