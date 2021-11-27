@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "Supervised Learning in Online Education"
