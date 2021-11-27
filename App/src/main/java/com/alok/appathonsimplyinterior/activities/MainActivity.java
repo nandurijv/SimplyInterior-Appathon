@@ -9,12 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -29,20 +31,21 @@ public class MainActivity extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
     private DatabaseReference db;
-    CoordinatorLayout drawerLayout;
+    ConstraintLayout drawerLayout;
     BottomNavigationView navigationView;
     Toolbar toolbar;
+    ImageView logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor("#FEDA7A"));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow();
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
         drawerLayout = findViewById(R.id.drawer_layout);
+        logout = findViewById(R.id.logout);
         AnimationDrawable animationDrawable = (AnimationDrawable) drawerLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
@@ -50,6 +53,13 @@ public class MainActivity extends AppCompatActivity{
 
         db = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
+        logout.setOnClickListener(view -> {
+            mAuth.signOut();
+            startActivity(new Intent(MainActivity.this, LoginSignupActivity.class));
+            finish();
+            Toast.makeText(this, "Successfully Logged Out!!", Toast.LENGTH_SHORT).show();
+        });
 
     }
 

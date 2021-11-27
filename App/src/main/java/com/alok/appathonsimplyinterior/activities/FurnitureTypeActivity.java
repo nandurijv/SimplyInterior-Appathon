@@ -60,6 +60,7 @@ public class FurnitureTypeActivity extends AppCompatActivity {
         i.putExtra("height",h);
         i.putExtra("type","sofa");
         startActivity(i);
+        finish();
     }
 
     public void sofaCardSelected1(View view) {
@@ -69,6 +70,7 @@ public class FurnitureTypeActivity extends AppCompatActivity {
         i.putExtra("height",h);
         i.putExtra("type","desk");
         startActivity(i);
+        finish();
     }
     public void sofaCardSelected2(View view) {
         Intent i = new Intent(getApplicationContext(), FurnitureResultActivity.class);
@@ -77,6 +79,7 @@ public class FurnitureTypeActivity extends AppCompatActivity {
         i.putExtra("height",h);
         i.putExtra("type","drawer");
         startActivity(i);
+        finish();
     }
     public void sofaCardSelected3(View view) {
         Intent i = new Intent(getApplicationContext(), FurnitureResultActivity.class);
@@ -85,5 +88,6 @@ public class FurnitureTypeActivity extends AppCompatActivity {
         i.putExtra("height",h);
         i.putExtra("type","wardrobe");
         startActivity(i);
+        finish();
     }
 }

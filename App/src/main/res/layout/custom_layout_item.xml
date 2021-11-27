@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="15dp"
-    app:cardCornerRadius="17dp">
+    app:cardCornerRadius="17dp"
+    app:cardElevation="0dp"
+    app:cardMaxElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F6F0E4"
-        android:backgroundTint="#F6F0E4"
+        android:background="#F7F7F7"
+        android:backgroundTint="#F7F7F7"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -27,10 +29,13 @@
             android:id="@+id/itemName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:text="Name"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,28 +45,34 @@
             android:id="@+id/price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/poppins"
             android:gravity="center"
             android:text="Price"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buyNow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/signinup_btn"
+            android:fontFamily="@font/poppins"
             android:padding="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Buy Now"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

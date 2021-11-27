@@ -4,9 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +19,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -42,10 +48,12 @@ public class LoginSignupActivity extends AppCompatActivity {
     ImageView userPersonMale;
     ImageView userPersonFemale;
     TextView missYou;
+    private AlertDialog loadingDialog;
 
 
 
     public void createAccount(View view) {
+        loadingDialog.show();
         if (email.getText().toString() != "" && password.getText().toString() != "") {
             try {
                 mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
@@ -56,23 +64,28 @@ public class LoginSignupActivity extends AppCompatActivity {
 
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Snackbar.make(findViewById(android.R.id.content),"Account Created Successfully",Snackbar.LENGTH_SHORT).show();
+                                    loadingDialog.hide();
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.i("failure:", task.getException().toString());
+                                    loadingDialog.hide();
                                     Snackbar.make(findViewById(android.R.id.content),"Authentication Failed",Snackbar.LENGTH_SHORT).show();
                                 }
                             }
                         });
             } catch(Exception e) {
                 Snackbar.make(findViewById(android.R.id.content),"Fields cannot be empty.",Snackbar.LENGTH_SHORT).show();
+                loadingDialog.hide();
             }
         } else {
             Snackbar.make(findViewById(android.R.id.content),"Fields cannot be empty.",Snackbar.LENGTH_SHORT).show();
+            loadingDialog.hide();
         }
 
     }
 
     public void loginAccount(View view) {
+        loadingDialog.show();
         if (email.getText().toString() != "" && password.getText().toString() != "") {
             try {
                 mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
@@ -94,20 +107,24 @@ public class LoginSignupActivity extends AppCompatActivity {
                                     home.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(home);
                                     finish();
+                                    loadingDialog.hide();
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.i("signInWithEmail:failure", task.getException().toString());
                                     Snackbar.make(findViewById(android.R.id.content),"Login Failed",Snackbar.LENGTH_SHORT).show();
+                                    loadingDialog.hide();
                                 }
                             }
                         });
             } catch (Exception e){
                 Snackbar.make(findViewById(android.R.id.content),"Fields cannot be empty.",Snackbar.LENGTH_SHORT).show();
+                loadingDialog.hide();
 
             }
 
         } else {
             Snackbar.make(findViewById(android.R.id.content),"Fields cannot be empty.",Snackbar.LENGTH_SHORT).show();
+            loadingDialog.hide();
         }
 
     }
@@ -116,6 +133,16 @@ public class LoginSignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_signup);
         loginSignup = findViewById(R.id.loginSignup);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow();
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.loading_animation, null);
+        loadingDialog = new AlertDialog.Builder(LoginSignupActivity.this)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create();
+        loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         AnimationDrawable animationDrawable = (AnimationDrawable) loginSignup.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);

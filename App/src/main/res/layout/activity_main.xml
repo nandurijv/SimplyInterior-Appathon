@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
@@ -11,18 +11,27 @@
     tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="167dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/rounded"
-            android:backgroundTint="#F7F8F3"
             android:clipToOutline="true"
             android:gravity="center"
             android:orientation="vertical"
@@ -34,9 +43,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/rounded2"
                 android:backgroundTint="#A0ECBE"
@@ -54,19 +61,19 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="94dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="16dp"
                         android:layout_weight="2"
                         android:fontFamily="@font/poppins"
-                        android:gravity="center"
+                        android:gravity="center|left"
                         android:text="Have Measurements"
                         android:textColor="#346C5E"
                         android:textSize="20sp" />
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/animationView3"
-                        android:layout_width="100dp"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
@@ -78,8 +85,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/rounded2"
                 android:backgroundTint="#A9EAD6"
@@ -97,19 +102,19 @@
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="94dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="16dp"
                         android:layout_weight="2"
                         android:fontFamily="@font/poppins"
-                        android:gravity="center"
+                        android:gravity="center|left"
                         android:text="Take Measurements"
                         android:textColor="#346C5E"
                         android:textSize="20sp" />
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/animationView1"
-                        android:layout_width="100dp"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
@@ -123,7 +128,6 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape"
             android:backgroundTint="#FEDA7A"
             android:orientation="vertical"
             android:paddingBottom="16dp"
@@ -157,7 +161,8 @@
             android:id="@+id/textView7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#FEDA7A"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
             android:paddingLeft="16dp"
@@ -167,24 +172,22 @@
             android:text="Simply Interior"
             android:textColor="@color/text_color"
             android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#FEDA7A"
-            android:paddingLeft="24dp"
-            android:paddingTop="24dp"
-            android:paddingBottom="24dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_logout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <ImageView
+        android:id="@+id/logout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_logout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

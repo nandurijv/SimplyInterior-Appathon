@@ -15,13 +15,20 @@
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/cursor.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/home.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/ic_logout.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/pass_notfocused.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/rounded.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/rounded2.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/signinup_btn.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/drawable/user_pass_bg.xml" value="0.26205128205128203" />
-        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/activity_login_signup.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/activity_furniture_result.xml" value="0.264" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/activity_login_signup.xml" value="0.264" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/activity_measurement_input.xml" value="0.264" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/activity_splash.xml" value="0.22870370370370371" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/activity_type_of_furniture.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/custom_layout_item.xml" value="0.22870370370370371" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/headerfile.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/layout/loading_animation.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/praso/AndroidStudioProjects/SimplyInterior-Appathon/App/src/main/res/menu/menu.xml" value="0.24615384615384617" />
       </map>
     </option>

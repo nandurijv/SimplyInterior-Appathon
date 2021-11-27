@@ -1,11 +1,19 @@
 package com.alok.appathonsimplyinterior.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,6 +40,8 @@ public class FurnitureResultActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<Furniture> furnitures;
     FurnitureResultAdapter adaptor;
+    private AlertDialog loadingDialog;
+    Button goBack;
 
     String apiurl = "https://sheetdb.io/api/v1/9j4n3euk9qvc3";
 
@@ -42,11 +52,27 @@ public class FurnitureResultActivity extends AppCompatActivity {
 
         resultLayout = findViewById(R.id.requiredResultLayout);
         recyclerView = findViewById(R.id.recyclerView);
+        goBack = findViewById(R.id.goBack2);
+        goBack.setOnClickListener(view -> {
+            onBackPressed();
+        });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow();
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
 
         AnimationDrawable animationDrawable = (AnimationDrawable) resultLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();
+
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.loading_animation, null);
+        loadingDialog = new AlertDialog.Builder(FurnitureResultActivity.this)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create();
+        loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         Intent intent = this.getIntent();
         l = intent.getStringExtra("length");
@@ -61,6 +87,7 @@ public class FurnitureResultActivity extends AppCompatActivity {
     }
 
     public void extractFurnitureDetail() {
+        loadingDialog.show();
         RequestQueue queue;
         queue = Volley.newRequestQueue(FurnitureResultActivity.this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, apiurl, null,
@@ -88,9 +115,11 @@ public class FurnitureResultActivity extends AppCompatActivity {
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         adaptor = new FurnitureResultAdapter(this, furnitures);
                         recyclerView.setAdapter(adaptor);
+                        loadingDialog.hide();
                     }
                 }, error -> {
             Log.d("jsonError", "onCreate Failed!!");
+            loadingDialog.hide();
         });
         queue.add(jsonArrayRequest);
     }
@@ -106,6 +135,7 @@ public class FurnitureResultActivity extends AppCompatActivity {
         i.putExtra("width", b);
         i.putExtra("height", h);
         startActivity(i);
+        finish();
     }
 }
 
