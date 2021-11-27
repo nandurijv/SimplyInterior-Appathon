@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home_menu"
+            android:icon="@drawable/home"
+            android:iconTintMode="multiply"
+            android:title="Home"
+            android:visible="true"></item>
+        <item android:id="@+id/logout_menu"
+            android:icon="@drawable/logout"
+            android:title="Logout"
+            android:iconTint="@color/black"
+            ></item>
+        <item android:id="@+id/about_menu"
+            android:icon="@drawable/aboutus"
+            android:title="About Us"
+            android:iconTint="@color/black"
+            ></item>
+    </group>
+
+
+
+</menu>
