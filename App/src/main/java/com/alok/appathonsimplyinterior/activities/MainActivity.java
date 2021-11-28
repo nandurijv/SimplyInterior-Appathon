@@ -23,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.alok.appathonsimplyinterior.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity{
             mAuth.signOut();
             startActivity(new Intent(MainActivity.this, LoginSignupActivity.class));
             finish();
-            Toast.makeText(this, "Successfully Logged Out!!", Toast.LENGTH_SHORT).show();
+            Snackbar.make(findViewById(android.R.id.content),"Successfully Logged Out!!",Snackbar.LENGTH_SHORT).show();
         });
 
     }

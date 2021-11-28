@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +43,7 @@ public class FurnitureResultActivity extends AppCompatActivity {
     FurnitureResultAdapter adaptor;
     private AlertDialog loadingDialog;
     Button goBack;
+    ConstraintLayout noResult;
 
     String apiurl = "https://sheetdb.io/api/v1/9j4n3euk9qvc3";
 
@@ -53,6 +55,7 @@ public class FurnitureResultActivity extends AppCompatActivity {
         resultLayout = findViewById(R.id.requiredResultLayout);
         recyclerView = findViewById(R.id.recyclerView);
         goBack = findViewById(R.id.goBack2);
+        noResult = findViewById(R.id.no_result);
         goBack.setOnClickListener(view -> {
             onBackPressed();
         });
@@ -103,6 +106,7 @@ public class FurnitureResultActivity extends AppCompatActivity {
                                 ) {
                                     Furniture f = new Furniture(jsonObject.getString("product_name"), jsonObject.getString("product_selection1"), jsonObject.getString("product_selection2"), jsonObject.getString("product_url"));
                                     furnitures.add(f);
+
 //                                Log.d("Datatype check", "extractFurnitureDetail: "+(Integer.parseInt(jsonObject.getString("length"))).getClass().getName());
                                     Log.d("json", "onCreate" + jsonObject.getString("product_name") + jsonObject.getString("length"));
                                 }
@@ -116,6 +120,11 @@ public class FurnitureResultActivity extends AppCompatActivity {
                         adaptor = new FurnitureResultAdapter(this, furnitures);
                         recyclerView.setAdapter(adaptor);
                         loadingDialog.hide();
+                    }
+                    if(furnitures.isEmpty()){
+                        noResult.setVisibility(View.VISIBLE);
+                    } else {
+                        noResult.setVisibility(View.GONE);
                     }
                 }, error -> {
             Log.d("jsonError", "onCreate Failed!!");
